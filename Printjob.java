@@ -1,4 +1,3 @@
-import javax.lang.model.util.ElementScanner6;
 
 public class Printjob implements Comparable<Printjob>
 {
@@ -7,6 +6,7 @@ public class Printjob implements Comparable<Printjob>
     private int userpriority;
     private int numPages;
 
+    // constructor
     public Printjob(String username, int userpriority, int numPages)
     {
         this.username = username;
@@ -28,9 +28,10 @@ public class Printjob implements Comparable<Printjob>
     }
 
 
+    // a necessary method for the comparable interface
     @Override
     public int compareTo(Printjob myJob)
-    {
+    {   // calculating the job priority
         int priorityOne, priorityTwo;
         priorityOne = this.getnumpages() * this.getuserpriority();
         priorityTwo = myJob.getnumpages() * myJob.getuserpriority();

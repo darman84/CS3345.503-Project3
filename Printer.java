@@ -1,8 +1,10 @@
+// Zachary Williams
+// 10/21/2022
+// CS3345.503 - Project 3 - Printer queue
 
-
-import java.io.File; // Import the File class
-import java.io.FileNotFoundException; // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.io.File; 
+import java.io.FileNotFoundException; 
+import java.util.Scanner; 
 
 public class Printer {
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class Printer {
                 }
             }
 
-            readprintList.close();
+            readprintList.close();  // closing the file
 
             while (!h.isEmpty()) 
             {
@@ -40,7 +42,7 @@ public class Printer {
                 if(printEntry instanceof OutsidePrintjob)   // checking if this is an outside print job
                 {
                     OutsidePrintjob printOutsideEntry = (OutsidePrintjob) printEntry;   // must downcast here
-                    System.out.print(" " + printOutsideEntry.getcost());
+                    System.out.print(" " + printOutsideEntry.getcost());    // if this an OutsidePrintjob, print the cost as well
                 }
                 System.out.println();
             }
