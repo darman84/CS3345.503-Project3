@@ -14,12 +14,31 @@ public class Printjob implements Comparable<Printjob>
         this.numPages = numPages;
     }
 
+    public String getusername()
+    {
+        return username;
+    }
+    public int getuserpriority()
+    {
+        return userpriority;
+    }
+    public int getnumpages()
+    {
+        return numPages;
+    }
+
+
     @Override
     public int compareTo(Printjob myJob)
     {
-        if(this.userpriority > myJob.userpriority)
+        int priorityOne, priorityTwo;
+        priorityOne = this.getnumpages() * this.getuserpriority();
+        priorityTwo = myJob.getnumpages() * myJob.getuserpriority();
+
+
+        if(priorityOne > priorityTwo)
             return 1;
-        else if(this.userpriority == myJob.userpriority)
+        else if(priorityOne == priorityTwo)
             return 0;
         else 
             return -1;
