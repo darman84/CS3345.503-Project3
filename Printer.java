@@ -14,7 +14,7 @@ public class Printer {
             BinaryHeap<Printjob> h = new BinaryHeap<>();
            
 
-            while (readprintList.hasNext()) 
+            while (readprintList.hasNext()) // parse the scanner
             {
                 String username = readprintList.next();
                 int userpriority = Integer.parseInt(readprintList.next());
@@ -35,14 +35,15 @@ public class Printer {
 
             readprintList.close();  // closing the file
 
+            System.out.println("Name     \tPriority\tPages\tCost");
             while (!h.isEmpty()) 
             {
                 Printjob printEntry =  h.deleteMin();
-                System.out.print(printEntry.getusername() + " " + printEntry.getuserpriority() + " " + printEntry.getnumpages());
+                System.out.print(printEntry.getusername() + "     \t" + printEntry.getuserpriority() + "\t\t " + printEntry.getnumpages());
                 if(printEntry instanceof OutsidePrintjob)   // checking if this is an outside print job
                 {
                     OutsidePrintjob printOutsideEntry = (OutsidePrintjob) printEntry;   // must downcast here
-                    System.out.print(" " + printOutsideEntry.getcost());    // if this an OutsidePrintjob, print the cost as well
+                    System.out.print("\t " + printOutsideEntry.getcost());    // if this an OutsidePrintjob, print the cost as well
                 }
                 System.out.println();
             }
